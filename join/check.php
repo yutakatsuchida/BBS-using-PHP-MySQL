@@ -15,21 +15,7 @@ if (!empty($_SESSION['join'])):
     $memberPassword = password_hash ($_SESSION["join"]["password"], PASSWORD_DEFAULT);
     $memberPicture = $_SESSION["join"]["image"];
     $memberDate = date('Y-m-d H:i:s');
-    //echo "<h1>${memberName}<br>${memberEmail}<br>${memberPassword}<br>${memberPicture}</h1>";
 
-    // $sql = "INSERT INTO `members` (`name`, `email`, `password`, `picture`, `created`)
-    // VALUES ('$memberName', '$memberEmail', '$memberPassword', '$memberPicture', '$memberDate')";
-
-    
-    // if ($conn->query($sql) === TRUE) {
-    //     echo "New record created successfully";
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    // }
-    
-    // $conn->close();
-
-    // SQL文を準備します。「:id」「:name」がプレースホルダーです。
     $sql = 'INSERT INTO `members` (`name`, `email`, `password`, `picture`, `created`) VALUEs (:name, :email, :password, :picture, :created)';
 
     $prepare = $dbh->prepare($sql);
@@ -40,15 +26,6 @@ if (!empty($_SESSION['join'])):
     $prepare->bindValue(':picture', $memberPicture, PDO::PARAM_STR);
     $prepare->bindValue(':created', $memberDate, PDO::PARAM_STR);
     $prepare->execute();
-
-    // INSERTされたデータを確認します
-    $sql = 'SELECT * FROM ' . DB_NAME;
-    $prepare = $dbh->prepare($sql);
-
-    $prepare->execute();
-
-    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($result);
 
     header('Location: complete.php');
 endif;
