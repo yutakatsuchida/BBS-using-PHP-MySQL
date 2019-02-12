@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+//font size
+$font-large : 21px;
+$font-middle: 14px;
+$font-small : 11px; 
+//width
+$containerWidth : 1132px;
+
+//colors
+$greenDeep : #28a896;
+$greenLight : #35ad00;
+$grayDeep : #444;
+$grayLight : #555;
+$brown :#4b260d;
+$opacity : 0.7;
+
+$gold1 : #e1c971;
+$gray1 : #D0D2D3;
+$gray2 : #929497;
+$gray3 : #6D6E70;
+$gray4 : #58595B;
+$gray5 : #404041;
+$gray6 : #231F20;
+$orange : #f1592a;
+
+//font-family
+$font-yahei : Avenir , 'Open Sans' , 'Helvetica Neue' , Helvetica , Arial , Verdana , Roboto , 'Microsoft YaHei New', 'Microsoft Yahei', '微软雅黑', '宋体', SimSun, STXihei, '华文细黑', sans-serif;
+$font-songti : 'Open Sans', '宋体', SimSun, '华文细黑', STXihei, sans-serif;
+$font-fongsong : 'Open Sans', 'FangSong', '仿宋', STFangSong, '华文仿宋', serif;
+$font-kaiti : 'Open Sans', 'KaiTi', '楷体', STKaiti, '华文楷体', serif;
+
+$font-fongsong2 : 'Times New Roman', Georgia, '宋体', SimSun, '华文细黑', STXihei, sans-serif;
+
+
+//@import url(//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic);
+
+$font-gothic : Avenir , 'Open Sans' , 'Helvetica Neue' , Helvetica , Arial , Verdana , Roboto , '游ゴシック' , 'Yu Gothic' , '游ゴシック体' , 'YuGothic' , 'ヒラギノ角ゴ Pro W3' , 'Hiragino Kaku Gothic Pro' , 'Meiryo UI' , 'メイリオ' , Meiryo , 'ＭＳ Ｐゴシック' , 'MS PGothic' , sans-serif;
+
+
+//@import url(//fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
+
+$font-mincho : 'Roboto Slab' , Garamond , 'Times New Roman' , '游明朝' , 'Yu Mincho' , '游明朝体' , 'YuMincho' , 'ヒラギノ明朝 Pro W3' , 'Hiragino Mincho Pro' , 'HiraMinProN-W3' , 'HGS明朝E' , 'ＭＳ Ｐ明朝' , 'MS PMincho' , serif;
+
+@mixin linkGrayFocus {
+	color:#555;
+    outline: none;
+	outline: none;
+	outline-offset: 0px;
+	text-decoration: none;
+}
+
+@mixin smartWidth300 {
+    max-width:300px;
+    width:92%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@mixin btnStyle01 {
+	border:1px solid #8d0100;
+    @include box-shadow(0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 10px 0px rgba(0,0,0,0.6));
+    background:#d41818;
+    @include background-image(linear-gradient(to bottom, #d21515, #ff5e5e));
+    @include transition-property(all);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(linear);
+    &:hover {
+    	@include box-shadow(0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2));
+    	@include background-image(linear-gradient(to top, #ff7e7e, #ff5e5e 66%, #e32b2b));
+    }
+    &:focus,
+    &:active {
+        color:#fff;
+    }
+}
+
+@mixin btnStyle02 {
+    border:1px solid #c92f00;
+    @include box-shadow(0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2));
+    background:#d41818;
+    @include background-image(linear-gradient(to bottom, #ff3c00, #ff7f57));
+    @include transition-property(all);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(linear);
+    &:hover {
+        @include box-shadow(0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2));
+        @include background-image(linear-gradient(to bottom, #de3400, #ff6130));
+    }
+    &:focus,
+    &:active {
+        color:#fff;
+    }
+}
+
+@mixin bgStyle01 {
+    border:1px solid #8d0100;
+    @include box-shadow(0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 3px rgba(0,0,0,0.2), 0px 0px 10px 0px rgba(0,0,0,0.6));
+    background:#d41818;
+    @include background-image(linear-gradient(to bottom, #d21515, #ff5e5e));
+}
+
+@mixin ribon {
+    position: relative;
+    padding: .75em 1em;
+    background-color: #f0f0f0;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        border-style: solid;
+        border-color: transparent;
+    }
+    &:before {
+        left: 0;
+        border-width: 0 15px 15px 0;
+        border-right-color: #ccc;
+    }
+    &:after {
+        right: 0;
+        border-style: solid;
+        border-width: 15px 15px 0 0;
+        border-top-color: #ccc;
+    }
+}
+
+@mixin baloon {
+    position: relative;
+    padding: .5em .75em;
+    background-color: #ddd;
+    @include border-radius(6px);
+    &:after {
+        position: absolute;
+        top: 100%;
+        left: 30px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top: 15px solid #ddd;
+    }
+}
+
+@mixin clf {
+    *zoom:1;
+    &:before,
+    &:after {
+       content:"";
+        display: table; 
+    }
+    &:after {
+        clear:both;
+    }
+}

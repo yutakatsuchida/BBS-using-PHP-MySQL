@@ -1,0 +1,92 @@
+ @charset "utf-8";
+
+@import "compass";
+@import "values";
+@import "compass/reset";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+body,input,textarea {
+	font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+   font-size:15px;
+   font-weight: 400;
+   color:#040404;
+}
+
+
+.container {
+	max-width:800px;
+	margin:0 auto;
+}
+
+.hover-opacity {
+  a {
+      @include transition-property(all);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-in);
+		
+
+  &:hover {
+    @include opacity($opacity);
+  }
+  }
+}
+
+input:focus
+{
+  outline:0;
+}
+
+h1 {
+	margin:1rem 0;
+	font-size:3.2rem;
+	font-weight:900;
+	text-align:center;
+}
+
+.lead-message {
+	text-align:center;
+	padding:1rem;
+	@include border-radius(5px);
+	background-color:#eee;
+	border:1px solid #bbb;
+	margin:1rem 0;
+}
+
+.dl-list-01 {
+	@include display-flex;
+	@include flex-wrap(wrap);
+	dt {
+		font-weight:900;
+		width:20%;
+		border-bottom:1px solid #eee;
+		padding:1rem 0;
+	}
+	dd {
+		width:80%;
+		border-bottom:1px solid #eee;
+		padding:1rem 0;
+	}
+}
+
+.required {
+	color:#fff;
+	background-color:red;
+	padding:0 3px;
+	@include border-radius(3px);
+	font-weight: 400;
+	font-size:.75rem;
+	margin-left:.5em;
+	@include inline-block;
+}
+
+.error-message {
+	color:red;
+}
